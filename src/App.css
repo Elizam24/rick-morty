@@ -1,0 +1,16 @@
+/* App.css */
+.app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  max-width: 1000px; /* Limita el ancho máximo */
+  margin: 0 auto; /* Centra la aplicación */
+}
+
+/* Media query para pantallas más pequeñas */
+@media (max-width: 600px) {
+  .app {
+    padding: 10px;
+  }
+}

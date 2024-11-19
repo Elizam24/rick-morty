@@ -1,0 +1,59 @@
+/* LocalDetails.css */
+.local-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border: 1px solid #f34040; /* Borde alrededor del contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    margin: 20px; /* Margen alrededor del componente */
+    background-color: #10e128; /* Color de fondo */
+    max-width: 600px; /* Ancho máximo del componente */
+  }
+  
+  /* Estilo para el título */
+  .local-details h1 {
+    font-size: 25px; /* Tamaño de fuente del título */
+    margin-bottom: 10px; /* Espacio debajo del título */
+  }
+  
+  /* Estilo para la dirección */
+  .local-details .address {
+    font-size: 20px; /* Tamaño de fuente de la dirección */
+    color: #555; /* Color del texto */
+    margin-bottom: 10px; /* Espacio debajo de la dirección */
+  }
+  
+  /* Estilo para la descripción */
+  .local-details .description {
+    font-size: 16px; /* Tamaño de fuente de la descripción */
+    color: #333; /* Color del texto */
+    margin-bottom: 20px; /* Espacio debajo de la descripción */
+  }
+  
+  /* Estilo para la imagen */
+  .local-details img {
+    max-width: 100%; /* La imagen no excederá el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 5px; /* Bordes redondeados para la imagen */
+  }
+  
+  /* Media query para pantallas más pequeñas */
+  @media (max-width: 600px) {
+    .local-details {
+      padding: 15px; /* Ajusta el espaciado interno para pantallas pequeñas */
+      margin: 10px; /* Ajusta el margen */
+    }
+  
+    .local-details h1 {
+      font-size: 20px; /* Ajusta el tamaño de fuente del título */
+    }
+  
+    .local-details .address {
+      font-size: 16px; /* Ajusta el tamaño de fuente de la dirección */
+    }
+  
+    .local-details .description {
+      font-size: 14px; /* Ajusta el tamaño de fuente de la descripción */
+    }
+  }
