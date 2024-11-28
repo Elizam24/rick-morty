@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import useFetch from '../hooks/useFetch';
-import './ResidentCard.css'; // Importar el archivo CSS correctamente
+import './ResidentCard.css'; 
 
 const ResidentCard = ({ residentUrl }) => {
   const { data: resident, loading, error } = useFetch(residentUrl);
@@ -24,4 +24,4 @@ ResidentCard.propTypes = {
   residentUrl: PropTypes.string.isRequired, // residentUrl debe ser una cadena y es requerido
 };
 
-export default ResidentCard; // Exportar el componente correcto
+export default ResidentCard; 
