@@ -1,27 +1,52 @@
-import PropTypes from 'prop-types';
+import { useEffect } from 'react';
 import useFetch from '../hooks/useFetch';
-import './ResidentCard.css'; 
+import '../styles/ResidentCard.css';
 
-const ResidentCard = ({ residentUrl }) => {
-  const { data: resident, loading, error } = useFetch(residentUrl);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error al cargar el residente.</p>;
+const ResidentCardComponent = ({ url }) => {
+    const [resident, setResident] = useFetch();
 
-  return (
-    <div>
-      <h4>{resident.name}</h4>
-      <img src={resident.image} alt={resident.name} />
-      <p>Status: {resident.status}</p>
-      <p>Origen: {resident.origin.name}</p>
-      <p>Episodios: {resident.episode.length}</p>
-    </div>
-  );
-};
+    useEffect(() => {
+        setResident(url);
+    }, [url, setResident]);
 
-// Validación de PropTypes
-ResidentCard.propTypes = {
-  residentUrl: PropTypes.string.isRequired, // residentUrl debe ser una cadena y es requerido
-};
+    const getStatusIcon = (status) => {
+        const statusLower = status?.toLowerCase();
 
-export default ResidentCard; 
+        if (statusLower === 'alive') {
+            return <span className="icon green-circle">🟢</span>; 
+        } else if (statusLower === 'dead') {
+            return <span className="icon red-circle">🔴</span>; 
+        } else {
+            return <span className="icon gray-circle">⚪</span>; 
+        }
+    };
+
+    return (
+        <div className='card'>
+            <div className='card_image'>
+                <img className='card_image-img' src={resident?.image} alt={resident?.name} />
+                <span className='card_status'>{getStatusIcon(resident?.status)}</span>
+            </div>
+            <div className='card_body'>
+              <h3 className='card_name'> {resident?.name}</h3>
+
+            <div className='card_info'>
+                <span className='card_info-item'></span>
+                     <span className='card_info-label'>Species</span>
+                <span>{resident?.species}</span>
+            </div>
+            <div className='card_info-item'>
+                <span className='card_info-label'>Origin</span>
+                <span>{resident?.origin?.name}</span>
+            </div>
+            <div className='card_info-item'>
+                <span className='card_info-label'>Episodes where appears</span>
+                <span>{resident?.episode?.length}</span>
+            </div>
+        </div>
+        </div>
+    );
+}
+
+export default ResidentCardComponent;

@@ -1,0 +1,37 @@
+
+
+/* Estilo para el cover */
+.cover {
+    position: relative; /* Permite posicionar elementos dentro del cover */
+    width: 100%; /* Ocupa todo el ancho de la pantalla */
+    height: 300px; /* Altura fija del cover, ajusta según sea necesario */
+    overflow: hidden; /* Esconde contenido que se salga del área del cover */
+   background-image: url('https://th.bing.com/th/id/OIP.l7dPVI6Qe7VjpKp--isCnAHaEK?w=329&h=184&c=7&r=0&o=5&pid=1.7');
+    background-color: #333; /* Fondo de respaldo si no carga la imagen */
+}
+
+/* Imagen del cover */
+.cover img {
+    width: 100%; /* La imagen ocupa todo el ancho */
+    height: 100%; /* La imagen se ajusta a la altura */
+    object-fit: cover; /* Mantiene proporciones y recorta si es necesario */
+}
+
+/* Texto dentro del cover */
+.cover h1 {
+    position: absolute; /* Posiciona el texto sobre la imagen */
+    bottom: 20px; /* Espaciado desde la parte inferior */
+    left: 20px; /* Espaciado desde el lado izquierdo */
+    color: white; /* Color del texto */
+    font-size: 2em; /* Tamaño de la fuente */
+    margin: 0;
+}
+
+/* Contenido debajo del cover */
+.contenido {
+    padding: 20px; /* Espaciado para que el contenido no esté pegado */
+    background-color: #f9f9f9; /* Fondo claro para contrastar */
+    font-size: 1em; /* Tamaño del texto */
+}
+
+

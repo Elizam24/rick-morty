@@ -1,34 +1,29 @@
-import  { useState } from 'react';
+import { useEffect, useState } from 'react';
 import useFetch from './hooks/useFetch';
-import LocationInput from './components/LocationInput';
-import LocationDetails from './components/LocationDetails';
-import './components/ResidentCard';
+import ResidCard from './components/ResidCard';
+import ResidentList from './components/ResidentList';
+import Search from './components/search'; 
 import './App.css';
 
-const App = () => {
-  const [locationId, setLocationId] = useState(null);
-  const { data: location, loading, error } = useFetch(
-    locationId ? `https://rickandmortyapi.com/api/location/${locationId}` : null
 
-  );
+function App() {
+    const [location, setLocation] = useFetch(); 
+    const [locationId, setLocationId] = useState(1); 
 
-  const fetchRandomLocation = () => {
-    const randomId = Math.floor(Math.random() * 126) + 1; // Genera un ID aleatorio entre 1 y 126
-    setLocationId(randomId);
-  };
+    useEffect(() => {
+        setLocation(`https://rickandmortyapi.com/api/location/${locationId}`);
+    }, [locationId]);
 
-  return (
-    <div className="app">
-      <h1>Rick and Morty Locations</h1>
-      <LocationInput onFetchLocation={setLocationId} />
-      <button onClick={fetchRandomLocation} className="random-button">
-        Mostrar Ubicación Aleatoria
-      </button>
-      {loading && <p>Cargando...</p>}
-      {error && <p>Hey! you must provide and id from 1 to 126.</p>} 
-      {location && <LocationDetails location={location} />}
-    </div>
-  );
-};
+    return (
+        <div>
+            <div className='hero' />
+            <div className='container'>
+                <Search setLocationId={setLocationId} />
+                <ResidCard location={location} />
+                <ResidentList residents={location?.residents} />
+            </div>
+        </div>
+    );
+}
 
 export default App;
