@@ -1,12 +1,11 @@
 import '../styles/ResidCard.css';
-import '../CCS/stylos.css';
+
 
 function ResidCard({ location }) {
   return (
     <div class="cover">
-    <img src='https://th.bing.com/th/id/OIP.l7dPVI6Qe7VjpKp--isCnAHaEK?w=329&h=184&c=7&r=0&o=5&pid=1.7' alt="Cover" />
-          <div className="content"> {/* Cambiado a div y className */}
-        
+    {/* <img src='7' alt="Cover" /> */}
+          /<div className="content"> {/* Cambiado a div y className */}?//        
 
         <div className='ResidCard'>
           <h2>{location?.name || 'Unknown Location'}</h2> 

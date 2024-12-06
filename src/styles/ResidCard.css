@@ -15,12 +15,12 @@
 
 .ResidCard_item-title{
     color: var(--text);
-    margin-bottom: 100px;
+    margin-bottom: 50px;
 }
 
 .ResiCard_container{
     display: grid;
-    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(1,1fr);
     font-size:15px;
 }
 .ResidCard_item{
@@ -28,7 +28,7 @@
 }
     
 .ResidCard_item-data{
-    color:#d3c6c660;
+    color:#6baed460;
 
 }
 @media screen and (min-width:768px){
